@@ -1,18 +1,3 @@
---------------------------------------------------------------------------------------------------------------------------------------
--- Author: SHEKAR KOLA
--- Created On: 2019-09-30
--- Modified On: 2019-11-04
-
--- Execute the following statements at DR Site SQL Server 
--- Same database must be restored at selected secondary server with "NORECOVERY" or "STANDBY" option 
--- Make sure @BackupCopyDirectory directory exists 
--- Change database context to user database that need to be a Primary of Log Shipping, or change the parameter @DBName manully
--- Verify COPY SCHEDULE and RESTORE SCHEDULE 
---------------------------------------------------------------------------------------------------------------------------------------
-
-
---Following can be changed to assign custom values into variable ------------------------------------------------------------------------------------------------------------
-
 Declare @SecondaryServer varchar(128);
 Declare @PrimaryServer varchar(128);
 Declare @DBName nvarchar(128);
