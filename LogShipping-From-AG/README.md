@@ -10,7 +10,7 @@ Following are the steps to configure Log Shipping (LS) from AlwaysOn Availabilit
 
 
 ### Log Shipping Configuration 
-  1. Use the `LSPrimary-Configure-Without-Monitor.sql` to execute on Primary Instance of LS, following varilable values must be changed, and it shold be executed in all AG Replicas
+  1. Use the `01-LSPrimary-Configure-Without-Monitor.sql` to execute on Primary Instance of LS, following varilable values must be changed, and it shold be executed in all AG Replicas
    ```sql
 SELECT @PrimaryServer      = 'SQL-LS-PRIMARY01'
 SELECT @SecondaryServer    = 'SQL-LS-SECONDARY01'; -- Change it as needed 
@@ -20,7 +20,7 @@ SELECT @BackupJobName      = 'LS_Backup_'+@DBName;
 SELECT @BackupScheduleName = 'LS_Backup_Sch_Databases'; -- This is centralized schedule for group of databases
 ```
   2. Verify LS Backup Jobs and Schedule in **Primary** Replicas of AG
-  3. Use the `LSSecondary-Configure-Without-Monitor.sql` to execute on **Secondary** Instance of LS, following varilable values must be changed before executing script
+  3. Use the `02-LSSecondary-Configure-Without-Monitor.sql` to execute on **Secondary** Instance of LS, following varilable values must be changed before executing script
  ```sql
 SELECT	@SecondaryServer      = 'SQL-LS-SECONDARY01';
 SELECT	@PrimaryServer        = 'SQL-LS-PRIMARY01'  --- Include AG Lestener name, if there is any custom port it must be specified with comma (,) after the hostname
